@@ -56,18 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             const newStudent = createStudent(infoStudent);
                             tableStudent.append(newStudent);
                         };
-                        if (infoStudent.competitionType === type) {
-                            const newStudent = createStudent(infoStudent);
-                            tableStudent.append(newStudent);
-                        };
-                        if (infoStudent.competitionType === type) {
-                            const newStudent = createStudent(infoStudent);
-                            tableStudent.append(newStudent);
-                        };
-                        if (infoStudent.competitionType === type) {
-                            const newStudent = createStudent(infoStudent);
-                            tableStudent.append(newStudent);
-                        };
                     } else {
                         const newStudent = createStudent(infoStudent);
                         tableStudent.append(newStudent);
