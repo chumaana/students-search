@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => data.json())
             .then(data => {
 
-                const tableStudent = document.querySelector('.table-element');
+                const tableStudent = document.querySelector('.tbody');
                 tableStudent.innerHTML = '';
 
                 for (let i = 0; i < data.length; i++) {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     };
                     if (type !== "all") {
-                        if (infoStudent.competitionType === type) {
+                        if (infoStudent.competitionType.toUpperCase() === type) {
                             const newStudent = createStudent(infoStudent);
                             tableStudent.append(newStudent);
                         };
@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
     handleClick("all");
     const handleButtonQAClick = () => handleClick("QA");
     const handleButtonJSClick = () => handleClick("JS");
-    const handleButtonPythonClick = () => handleClick("Python");
-    const handleButtonJavaClick = () => handleClick("Java");
+    const handleButtonPythonClick = () => handleClick("PYTHON");
+    const handleButtonJavaClick = () => handleClick("JAVA");
     buttonQA.addEventListener('click', handleButtonQAClick);
     buttonJS.addEventListener('click', handleButtonJSClick);
     buttonJava.addEventListener('click', handleButtonJavaClick);
