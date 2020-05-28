@@ -38,107 +38,150 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return infoStudent;
     };
-
-    const handleButtonClick = () => {
+    const handleClick = (type) => {
         fetch('http://goiteens.club/hse/back/students.php')
             .then(data => data.json())
             .then(data => {
 
-                const tableStudent = document.querySelector('.table');
+                const tableStudent = document.querySelector('.table-element');
+                tableStudent.innerHTML = '';
 
                 for (let i = 0; i < data.length; i++) {
                     const infoStudent = {
                         ...data[i],
 
                     };
-
-
-                    const newStudent = createStudent(infoStudent);
-                    tableStudent.append(newStudent);
+                    if (type !== "all") {
+                        if (infoStudent.competitionType === "Python") {
+                            const newStudent = createStudent(infoStudent);
+                            tableStudent.append(newStudent);
+                        };
+                        if (infoStudent.competitionType === "Java") {
+                            const newStudent = createStudent(infoStudent);
+                            tableStudent.append(newStudent);
+                        };
+                        if (infoStudent.competitionType === "QA") {
+                            const newStudent = createStudent(infoStudent);
+                            tableStudent.append(newStudent);
+                        };
+                        if (infoStudent.competitionType === "JS") {
+                            const newStudent = createStudent(infoStudent);
+                            tableStudent.append(newStudent);
+                        };
+                    } else {
+                        const newStudent = createStudent(infoStudent);
+                        tableStudent.append(newStudent);
+                    }
                 }
 
-            })
+            });
     };
-    const handleButtonQAClick = () => {
-        fetch('http://goiteens.club/hse/back/students.php')
-            .then(data => data.json())
-            .then(data => {
+    const handleButtonQAClick = () => handleClick("QA");
+    const handleButtonJSClick = () => handleClick("JS");
+    const handleButtonPythonClick = () => handleClick("Python");
+    const handleButtonJavaClick = () => handleClick("Java");
 
-                const tableStudent = document.querySelector('.table');
+    // const handleButtonClick = () => {
+    //     fetch('http://goiteens.club/hse/back/students.php')
+    //         .then(data => data.json())
+    //         .then(data => {
 
-                for (let i = 0; i < data.length; i++) {
-                    const infoStudent = {
-                        ...data[i],
+    //             const tableStudent = document.querySelector('.table');
 
-                    };
-                    if (infoStudent.competitionType === "QA") {
-                        const newStudent = createStudent(infoStudent);
-                        tableStudent.append(newStudent);
-                    };
-                };
+    //             for (let i = 0; i < data.length; i++) {
+    //                 const infoStudent = {
+    //                     ...data[i],
 
-            })
-    };
-    const handleButtonJSClick = () => {
-        fetch('http://goiteens.club/hse/back/students.php')
-            .then(data => data.json())
-            .then(data => {
+    //                 };
 
-                const tableStudent = document.querySelector('.table');
 
-                for (let i = 0; i < data.length; i++) {
-                    const infoStudent = {
-                        ...data[i],
+    //                 const newStudent = createStudent(infoStudent);
+    //                 tableStudent.append(newStudent);
+    //             }
 
-                    };
-                    if (infoStudent.competitionType === "JS") {
-                        const newStudent = createStudent(infoStudent);
-                        tableStudent.append(newStudent);
-                    };
-                };
+    //         })
+    // };
+    // const handleButtonQAClick = () => {
+    //     fetch('http://goiteens.club/hse/back/students.php')
+    //         .then(data => data.json())
+    //         .then(data => {
 
-            })
-    };
-    const handleButtonJavaClick = () => {
-        fetch('http://goiteens.club/hse/back/students.php')
-            .then(data => data.json())
-            .then(data => {
+    //             const tableStudent = document.querySelector('.table');
 
-                const tableStudent = document.querySelector('.table');
+    //             for (let i = 0; i < data.length; i++) {
+    //                 const infoStudent = {
+    //                     ...data[i],
 
-                for (let i = 0; i < data.length; i++) {
-                    const infoStudent = {
-                        ...data[i],
+    //                 };
+    //                 if (infoStudent.competitionType === "QA") {
+    //                     const newStudent = createStudent(infoStudent);
+    //                     tableStudent.append(newStudent);
+    //                 };
+    //             };
 
-                    };
-                    if (infoStudent.competitionType === "Java") {
-                        const newStudent = createStudent(infoStudent);
-                        tableStudent.append(newStudent);
-                    };
-                };
+    //         })
+    // };
+    // const handleButtonJSClick = () => {
+    //     fetch('http://goiteens.club/hse/back/students.php')
+    //         .then(data => data.json())
+    //         .then(data => {
 
-            })
-    };
-    const handleButtonPythonClick = () => {
-        fetch('http://goiteens.club/hse/back/students.php')
-            .then(data => data.json())
-            .then(data => {
+    //             const tableStudent = document.querySelector('.table');
 
-                const tableStudent = document.querySelector('.table');
+    //             for (let i = 0; i < data.length; i++) {
+    //                 const infoStudent = {
+    //                     ...data[i],
 
-                for (let i = 0; i < data.length; i++) {
-                    const infoStudent = {
-                        ...data[i],
+    //                 };
+    //                 if (infoStudent.competitionType === "JS") {
+    //                     const newStudent = createStudent(infoStudent);
+    //                     tableStudent.append(newStudent);
+    //                 };
+    //             };
 
-                    };
-                    if (infoStudent.competitionType === "Python") {
-                        const newStudent = createStudent(infoStudent);
-                        tableStudent.append(newStudent);
-                    };
-                };
+    //         })
+    // };
+    // const handleButtonJavaClick = () => {
+    //     fetch('http://goiteens.club/hse/back/students.php')
+    //         .then(data => data.json())
+    //         .then(data => {
 
-            })
-    };
+    //             const tableStudent = document.querySelector('.table');
+
+    //             for (let i = 0; i < data.length; i++) {
+    //                 const infoStudent = {
+    //                     ...data[i],
+
+    //                 };
+    //                 if (infoStudent.competitionType === "Java") {
+    //                     const newStudent = createStudent(infoStudent);
+    //                     tableStudent.append(newStudent);
+    //                 };
+    //             };
+
+    //         })
+    // };
+    // const handleButtonPythonClick = () => {
+    //     fetch('http://goiteens.club/hse/back/students.php')
+    //         .then(data => data.json())
+    //         .then(data => {
+
+    //             const tableStudent = document.querySelector('.table');
+
+    //             for (let i = 0; i < data.length; i++) {
+    //                 const infoStudent = {
+    //                     ...data[i],
+
+    //                 };
+    //                 if (infoStudent.competitionType === "Python") {
+    //                     const newStudent = createStudent(infoStudent);
+    //                     tableStudent.append(newStudent);
+    //                 };
+
+    //             };
+
+    //         })
+    // };
 
 
 
@@ -147,6 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
     buttonJS.addEventListener('click', handleButtonJSClick);
     buttonJava.addEventListener('click', handleButtonJavaClick);
     buttonPython.addEventListener('click', handleButtonPythonClick);
-    //handleButtonClick();
 
+    //handleButtonClick();
 });
