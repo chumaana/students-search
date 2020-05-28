@@ -52,19 +52,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     };
                     if (type !== "all") {
-                        if (infoStudent.competitionType === "Python") {
+                        if (infoStudent.competitionType === type) {
                             const newStudent = createStudent(infoStudent);
                             tableStudent.append(newStudent);
                         };
-                        if (infoStudent.competitionType === "Java") {
+                        if (infoStudent.competitionType === type) {
                             const newStudent = createStudent(infoStudent);
                             tableStudent.append(newStudent);
                         };
-                        if (infoStudent.competitionType === "QA") {
+                        if (infoStudent.competitionType === type) {
                             const newStudent = createStudent(infoStudent);
                             tableStudent.append(newStudent);
                         };
-                        if (infoStudent.competitionType === "JS") {
+                        if (infoStudent.competitionType === type) {
                             const newStudent = createStudent(infoStudent);
                             tableStudent.append(newStudent);
                         };
