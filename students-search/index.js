@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             });
     };
+    handleClick("all");
     const handleButtonQAClick = () => handleClick("QA");
     const handleButtonJSClick = () => handleClick("JS");
     const handleButtonPythonClick = () => handleClick("Python");
